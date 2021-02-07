@@ -20,10 +20,10 @@ router.get('/', async (req, res, next) => {
     }
 })
 //covid news by country & state ie US-NY
-router.get('/:countryID:stateID', async (req, res, next) => {
+router.get('/:stateID', async (req, res, next) => {
     const options = {
         method: 'GET',
-        url: `https://coronavirus-smartable.p.rapidapi.com/news/v1/${req.params.countryID}-${req.params.stateID}/`, 
+        url: `https://coronavirus-smartable.p.rapidapi.com/news/v1/US-${req.params.stateID}/`, 
         headers: {
             'x-rapidapi-key': '623d0f4b1fmsh0cd1507033aae0cp14fa7bjsn047dcb6b3daa',
             'x-rapidapi-host': 'coronavirus-smartable.p.rapidapi.com'
@@ -36,23 +36,27 @@ router.get('/:countryID:stateID', async (req, res, next) => {
         console.error(error)
     }
 })
-//vaccine news
+
+
+// //vaccine news
 router.get('/vaccine', async (req, res, next) => {
-    // const options = {
-    //     method: 'GET',
-    //     url: 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/vaccines/get-treatments/rna-based-treatments',
-    //     headers: {
-    //       'x-rapidapi-key': 'f205866adcmsh67fd61adef16fb8p1b04aajsn87e938cee808',
-    //       'x-rapidapi-host': 'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com'
-    //     }
-    //   };
+    const options = {
+        method: 'GET',
+        url: 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/vaccines/get-treatments/rna-based-treatments',
+        headers: {
+          'x-rapidapi-key': 'f205866adcmsh67fd61adef16fb8p1b04aajsn87e938cee808',
+          'x-rapidapi-host': 'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com'
+        }
+      };
     try {
-        // const response = await axios.request(options)
-        res.json('hello')
+        const response = await axios.request(options)
+        res.json(response.data)
     } catch (error) {
         console.error('this is an error')
     } 
 })
+
+
 
 //covid news
 /*
