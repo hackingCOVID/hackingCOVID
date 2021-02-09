@@ -5,12 +5,7 @@ const axios = require("axios").default;
 router.get('/', async (req, res, next) => {
     const options = {
         method: 'GET',
-        url: 'https://covid-19-data.p.rapidapi.com/country/code',
-        params: {code: 'us'},
-        headers: {
-          'x-rapidapi-key': 'f205866adcmsh67fd61adef16fb8p1b04aajsn87e938cee808',
-          'x-rapidapi-host': 'covid-19-data.p.rapidapi.com'
-        }
+        url: 'http://covidtracking.com/api/us',
       };
     try {
         const response = await axios.request(options)
@@ -19,16 +14,14 @@ router.get('/', async (req, res, next) => {
         console.error(error)
     }
 })
-//US state total stats
+
+
+
+//ALL US state total stats
 router.get('/states', async (req, res, next) => {
     const options = {
         method: 'GET',
-        url: 'https://coronavirus-us-api.p.rapidapi.com/api/state/all',
-        params: {source: 'nyt'},
-        headers: {
-            'x-rapidapi-key': 'f205866adcmsh67fd61adef16fb8p1b04aajsn87e938cee808',
-            'x-rapidapi-host': 'coronavirus-us-api.p.rapidapi.com'
-        }
+        url: 'http://covidtracking.com/api/states',
     }
     try {
         const response = await axios.request(options)
@@ -37,6 +30,29 @@ router.get('/states', async (req, res, next) => {
         console.error(error)
     }
 })
+
+// single state request 
+router.get('/states/:state', async (req, res, next) => {
+    const options = {
+        method: 'GET',
+        url: `http://covidtracking.com/api/states/`,
+    }
+    try {
+        const response = await axios.request(options)
+        for(let i = 0; i < response.data.length; i++){
+        if(response.data[i]["state"] === req.params.state){
+            res.json(response.data[i]); 
+            }
+        }
+    } catch (error) {
+        console.error(error)
+    }
+})
+
+
+
+
+
 
 
 

@@ -6,11 +6,7 @@ router.get('/', async (req, res, next) => {
     const options = {
         method: 'GET',
         // url: `https://coronavirus-smartable.p.rapidapi.com/news/v1/${req.params.countryID}/`, 
-        url: `https://coronavirus-smartable.p.rapidapi.com/news/v1/US/`,
-        headers: {
-            'x-rapidapi-key': '623d0f4b1fmsh0cd1507033aae0cp14fa7bjsn047dcb6b3daa',
-            'x-rapidapi-host': 'coronavirus-smartable.p.rapidapi.com'
-        }
+        url: ``,
     }
     try {
         const response = await axios.request(options)
