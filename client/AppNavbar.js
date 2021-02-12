@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import NavDropdown from 'react-bootstrap/NavDropdown'
-
+import Map from './Map'
 
 function AppNavbar() {
     return (
@@ -17,7 +17,7 @@ function AppNavbar() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto">
                         <Nav.Link href="#features">Home</Nav.Link>
-                        <Nav.Link href="#pricing">Map</Nav.Link>
+                        <Nav.Link href="#Map">Map</Nav.Link>
                         <Nav.Link href="#pricing">Vaccine Info</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
