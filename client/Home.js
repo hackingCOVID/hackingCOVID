@@ -1,3 +1,5 @@
+import React from "react";
+
 
 export class Home extends React.Component {
     componentDidMount(){
@@ -31,4 +33,5 @@ const mapDispatch = dispatch => ({
 });
 
 
-export default connect(mapState, mapDispatch)(Home);
+export default Home;
+// export default connect(mapState, mapDispatch)(Home);

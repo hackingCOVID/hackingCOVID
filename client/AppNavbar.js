@@ -6,24 +6,46 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Map from './Map'
+import Home from './Home'
+import VaccineInfo from './VaccineInfo'
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+  } from "react-router-dom";
 
 function AppNavbar() {
     return (
         <div>
           <div>
+          <Router>
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" className="justify-center" >
                 <Navbar.Brand href="#home">HackingCOVID</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link href="#features">Home</Nav.Link>
-                        <Nav.Link href="#Map">Map</Nav.Link>
-                        <Nav.Link href="#pricing">Vaccine Info</Nav.Link>
+                        <Nav.Link href="/home">Home</Nav.Link>
+                        <Nav.Link href="/map">Map</Nav.Link>
+                        <Nav.Link href="/vaccine">Vaccine Info</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
+            <br />
+            <Switch>
+                <Route exact path="/">
+                    {/* <Home /> */}
+                </Route>
+                <Route path="/map">
+                    <Map />
+                </Route>
+                {/* <Route path="/vaccine">
+                    <VaccineInfo />
+                </Route> */}
+            </Switch>
+        </Router>
             </div>
-            <div>
+            {/* <div>
             <Navbar bg="primary" variant="dark">
                   <Navbar.Brand href="#home">HackingCOVID</Navbar.Brand>
                   <Nav className="mr-auto">
@@ -42,7 +64,7 @@ function AppNavbar() {
                       <Button variant="outline-light">Search</Button>
                   </Form>
               </Navbar>
-            </div>
+            </div> */}
     </div>
     )
 }
