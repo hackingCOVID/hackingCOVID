@@ -1,3 +1,5 @@
+import React from "react";
+ 
 export class VaccineInfo extends React.Component {
     componentDidMount(){
         // this.props.getVaccInfo() 

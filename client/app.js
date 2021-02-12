@@ -1,12 +1,12 @@
 import React from 'react'
-// import AppNavbar from './AppNavbar'
-import Map from './Map'
+import AppNavbar from './AppNavbar'
+// import Map from './Map'
 
 function App() {
     return (
       <div>
-          {/* <AppNavbar/> */}
-          <Map/>
+          <AppNavbar/>
+          {/* <Map/> */}
       </div>
     );
   }
