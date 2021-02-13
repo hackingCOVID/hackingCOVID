@@ -3,13 +3,12 @@ import geojson from './geojson.json';
 import { geoMercator, geoPath } from 'd3-geo';
 import { select } from 'd3-selection';
 
-
 export default class Map extends React.Component {
   render() {
-    const width = 500;
-    const height = width * 0.5;
+    const width = 2500;
+    const height = width * 0.50;
     const projection = geoMercator().fitExtent(
-      [[0, 0], [width * 0.9, height * 0.9]],
+      [[0, 0], [width * 0.9, height * 0.6]],
       geojson
     );
     const path = geoPath().projection(projection);
