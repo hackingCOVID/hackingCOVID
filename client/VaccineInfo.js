@@ -1,25 +1,19 @@
 import React from "react";
  
-export class VaccineInfo extends React.Component {
-    componentDidMount(){
-        // this.props.getVaccInfo() 
-    }
+class VaccineInfo extends React.Component {
+   
     render() {
         return (
-         <div>
+         <div className='vaccine-div'>
+           <h1>VACCINE PAGE</h1>
          
    
          </div>
         )
    }
-}  
-const mapState = (state) => { 
-    return {
-      // vaccineInfo: state.vaccineInfo, 
+}
+
+export default VaccineInfo
+
   
-    };
-  };
-  
-  const mapDispatch = dispatch => ({  
-    // getVaccine: () => dispatch(fetchVaccineInfoThunk()) 
-  });
+ 

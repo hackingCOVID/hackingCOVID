@@ -13,8 +13,11 @@ export default class Map extends React.Component {
     );
     const path = geoPath().projection(projection);
 
+
     return (
-      <svg width={width} height={height}>
+      <div className='map-div'>
+      <svg viewBox="275 370 500 1000">
+       
         <g className="geojson-layer">
           {
             geojson.features.map(d => (
@@ -28,16 +31,31 @@ export default class Map extends React.Component {
                 onMouseEnter={(e) => {
                   select(e.target)
                     .attr('fill', '#000')
+                    // .append('circle')
+                    //   .attr("id", "circleBasicTooltip")
+                    //   .attr("cx", 150)
+                    //   .attr("cy", 200)
+                    //   .attr("r", 40)
+                    //   .attr("fill", "#69b3a2")
+                    // .append("div")
+                    //   .style("position", "absolute")
+                    //   .style("visibility", "hidden")
+                    //   .text("I'm a circle!");
+                      
+                    
+
                 }}
                 onMouseOut={(e) => {
                   select(e.target)
                     .attr('fill', '#eee')
+                    // .style('visibility', 'hidden')
                 }}
               />
             ))
           }
         </g>
       </svg>
+      </div>
     )
   }
 }
