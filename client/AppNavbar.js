@@ -9,17 +9,12 @@ import Map from './Map'
 import Home from './Home'
 import VaccineInfo from './VaccineInfo'
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-  } from "react-router-dom";
+
 
 function AppNavbar() {
     return (
-        <div>
+        <div >
           <div>
-          <Router>
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" className="justify-center" >
                 <Navbar.Brand href="#home">HackingCOVID</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -32,18 +27,8 @@ function AppNavbar() {
                 </Navbar.Collapse>
             </Navbar>
             <br />
-            <Switch>
-                <Route exact path="/">
-                    {/* <Home /> */}
-                </Route>
-                <Route path="/map">
-                    <Map />
-                </Route>
-                {/* <Route path="/vaccine">
-                    <VaccineInfo />
-                </Route> */}
-            </Switch>
-        </Router>
+            
+        
             </div>
             {/* <div>
             <Navbar bg="primary" variant="dark">
