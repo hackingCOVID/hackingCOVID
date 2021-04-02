@@ -2,6 +2,7 @@ import React from 'react';
 import geojson from './geojson.json';
 import { geoMercator, geoPath } from 'd3-geo';
 import { select } from 'd3-selection';
+import * as d3 from 'd3'
   
 export default class Map extends React.Component {
   render() {
@@ -13,11 +14,15 @@ export default class Map extends React.Component {
     );
     const path = geoPath().projection(projection);
 
+    const tooltip = d3
+        .select('body')
+        .append('div')
+        .attr('class', 'tooltip')
+
 
     return (
       <div className='map-div'>
-      <svg viewBox="275 370 500 1000">
-       
+      <svg viewBox="275 370 500 400">
         <g className="geojson-layer">
           {
             geojson.features.map(d => (
@@ -31,65 +36,26 @@ export default class Map extends React.Component {
                 onMouseEnter={(e) => {
                   select(e.target)
                     .attr('fill', '#000')
-                    // .append('circle')
-                    //   .attr("id", "circleBasicTooltip")
-                    //   .attr("cx", 150)
-                    //   .attr("cy", 200)
-                    //   .attr("r", 40)
-                    //   .attr("fill", "#69b3a2")
-                    // .append("div")
-                    //   .style("position", "absolute")
-                    //   .style("visibility", "hidden")
-                    //   .text("I'm a circle!");
-                      
-                    
-
+                    tooltip
+                    .style("opacity", 1)   
                 }}
                 onMouseOut={(e) => {
                   select(e.target)
                     .attr('fill', '#eee')
-                    // .style('visibility', 'hidden')
+                    tooltip
+                    .style("opacity", 0);
+                    
                 }}
               />
             ))
           }
         </g>
       </svg>
+      
       </div>
     )
   }
 }
 
 
-
-
-
-// export class Map extends React.Component {
-
-//     componentDidMount(){
-//         // this.props.getMap() 
-//     }
-//     render() {
-//         return (
-//          <div>
-         
-   
-//          </div>
-//         )
-//    }
-// } 
-
-// const mapState = (state) => { 
-//     return {
-//       // map: state.map, 
-  
-//     };
-//   };
-  
-//   const mapDispatch = dispatch => ({  
-//     // getMap: () => dispatch(fetchMapThunk()) 
-//   });
-  
-  
-//   export default connect(mapState, mapDispatch)(Map);
   
