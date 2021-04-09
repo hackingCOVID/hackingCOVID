@@ -41,10 +41,11 @@ router.get('/states/:state', async (req, res, next) => {
         method: 'GET',
         url: `http://covidtracking.com/api/states/`,
     }
+    let upperCaseState = req.params.state.toUpperCase()
     try {
         const response = await axios.request(options)
         for(let i = 0; i < response.data.length; i++){
-        if(response.data[i]["state"] === req.params.state){
+        if(response.data[i]["state"] === upperCaseState){
             res.json(response.data[i]); 
             }
         }

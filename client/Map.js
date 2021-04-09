@@ -3,9 +3,21 @@ import geojson from './geojson.json';
 import { geoMercator, geoPath } from 'd3-geo';
 import { select } from 'd3-selection';
 import * as d3 from 'd3'
+//const fetch = require('node-fetch')
   
 export default class Map extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      stateObj : {}
+    } 
+  }
+
+
+
+ 
   render() {
+    console.log('THIS', this)
     const width = 2600;
     const height = width * 0.50;
     const projection = geoMercator().fitExtent(
@@ -19,6 +31,7 @@ export default class Map extends React.Component {
         .append('div')
         .attr('class', 'tooltip')
 
+    
 
     return (
       <div className='map-div'>
@@ -37,8 +50,17 @@ export default class Map extends React.Component {
                   select(e.target)
                     .attr('fill', '#000')
                     tooltip
-                    .style("opacity", 1)   
+                    .style("opacity", 1)
+                    fetch(`/api/data/states/${d.properties.abbreviation}`)
+                       .then(function(response){
+                         return response.json()
+                       })
+                       .then(function(data){
+                         console.log('DATA', data)
+                         //we cant set state here and we don't know how to access it -> this is the current problem 
+                       })
                 }}
+                
                 onMouseOut={(e) => {
                   select(e.target)
                     .attr('fill', '#eee')
