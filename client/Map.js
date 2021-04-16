@@ -9,11 +9,17 @@ export default class Map extends React.Component {
   constructor(){
     super()
     this.state = {
-      stateObj : {}
+      stateObj : {},
+      hover: false
     } 
   }
 
+  toggleHover(){
+    console.log('toggle has been hit')
+    this.setState({hover: !this.state.hover})
+  }
 
+  
 
  
   render() {
@@ -26,15 +32,26 @@ export default class Map extends React.Component {
     );
     const path = geoPath().projection(projection);
 
-    const tooltip = d3
-        .select('body')
-        .append('div')
-        .attr('class', 'tooltip')
+    // const tooltip = d3
+    //     .select('body')
+    //     .append('div')
+    //     .attr('class', 'tooltip')
 
+
+    let gettingAccessToThisKeyword = this
+
+    let changeOpacity
+      if(this.state.hover){
+        changeOpacity = {opacity: 1}
+      }else{
+        changeOpacity = {opacity: 0}
+      }
     
+  
 
     return (
       <div className='map-div'>
+      <div style={changeOpacity} className='test'></div>
       <svg viewBox="275 370 500 400">
         <g className="geojson-layer">
           {
@@ -47,28 +64,31 @@ export default class Map extends React.Component {
                 strokeWidth="1"
                 strokeOpacity="0.5"
                 onMouseEnter={(e) => {
+                  this.toggleHover()
                   select(e.target)
                     .attr('fill', '#000')
-                    tooltip
-                    .style("opacity", 1)
+                    // tooltip
+                    // .style("opacity", 1)
                     fetch(`/api/data/states/${d.properties.abbreviation}`)
                        .then(function(response){
                          return response.json()
                        })
                        .then(function(data){
-                         console.log('DATA', data)
-                         //we cant set state here and we don't know how to access it -> this is the current problem 
+                        console.log('DATA', data)
+                        gettingAccessToThisKeyword.setState({stateObj : data})
                        })
                 }}
                 
                 onMouseOut={(e) => {
+                  this.toggleHover()
+                  //this.setState({stateObj : {}})
                   select(e.target)
                     .attr('fill', '#eee')
-                    tooltip
-                    .style("opacity", 0);
-                    
+                    // tooltip
+                    // .style("opacity", 0);
                 }}
               />
+
             ))
           }
         </g>
