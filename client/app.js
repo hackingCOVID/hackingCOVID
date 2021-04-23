@@ -10,7 +10,7 @@ function App() {
       <div>
       <AppNavbar/>
       <Router className='mainComponent'>
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/home" component={Home}/>
         <Route path="/map" component={Map} />
         <Route path="/vaccineinfo" component={VaccineInfo} />
       </Router>

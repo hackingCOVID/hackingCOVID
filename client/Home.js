@@ -9,7 +9,7 @@ export class Home extends React.Component {
     render() {
         return (
          <div>
-           <h1> </h1>
+           <h1> Homepage! </h1>
            {/* // mapping over news array being passed in  */}
            {/* {this.props.home.map((____) => {
              return ("no frontend stuff yet")
@@ -32,6 +32,6 @@ const mapDispatch = dispatch => ({
   // getHome: () => dispatch(fetchHomeThunk()) 
 });
 
-
+// ned thnk to mmake api request 
 export default Home;
 // export default connect(mapState, mapDispatch)(Home);

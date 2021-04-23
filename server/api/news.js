@@ -5,8 +5,7 @@ const axios = require("axios").default;
 router.get('/', async (req, res, next) => {
     const options = {
         method: 'GET',
-        // url: `https://coronavirus-smartable.p.rapidapi.com/news/v1/${req.params.countryID}/`, 
-        url: ``,
+        url: `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=COVID&api-key=kMSfnKgBxK45L6xCeyYS2AfTcAGO4AfZ`,
     }
     try {
         const response = await axios.request(options)
