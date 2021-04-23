@@ -14,16 +14,8 @@ export default class Map extends React.Component {
     } 
   }
 
-  toggleHover(){
-    console.log('toggle has been hit')
-    this.setState({hover: !this.state.hover})
-  }
-
-  
-
- 
   render() {
-    console.log('THIS', this)
+    console.log('staterender', this.state)
     const width = 2600;
     const height = width * 0.50;
     const projection = geoMercator().fitExtent(
@@ -38,7 +30,7 @@ export default class Map extends React.Component {
     //     .attr('class', 'tooltip')
 
 
-    let gettingAccessToThisKeyword = this
+    let gettingAccessToThisKeyword = this; 
 
     let changeOpacity
       if(this.state.hover){
@@ -48,10 +40,16 @@ export default class Map extends React.Component {
       }
     
   
-
     return (
       <div className='map-div'>
-      <div style={changeOpacity} className='test'></div>
+      <div style={changeOpacity} className='test'>
+      <h3>statename:{this.state.stateObj.state}</h3>
+      <h3>total:{this.state.stateObj.total}</h3>
+      <h3>hospitalized:{this.state.stateObj.hospitalized}</h3>
+
+
+      
+      </div>
       <svg viewBox="275 370 500 400">
         <g className="geojson-layer">
           {
@@ -64,7 +62,6 @@ export default class Map extends React.Component {
                 strokeWidth="1"
                 strokeOpacity="0.5"
                 onMouseEnter={(e) => {
-                  this.toggleHover()
                   select(e.target)
                     .attr('fill', '#000')
                     // tooltip
@@ -74,14 +71,13 @@ export default class Map extends React.Component {
                          return response.json()
                        })
                        .then(function(data){
-                        console.log('DATA', data)
-                        gettingAccessToThisKeyword.setState({stateObj : data})
+                        gettingAccessToThisKeyword.setState({stateObj : data, hover: !gettingAccessToThisKeyword.state.hover})
                        })
+                
                 }}
                 
                 onMouseOut={(e) => {
-                  this.toggleHover()
-                  //this.setState({stateObj : {}})
+                  this.setState({hover: !this.state.hover})
                   select(e.target)
                     .attr('fill', '#eee')
                     // tooltip
