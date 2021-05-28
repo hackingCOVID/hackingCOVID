@@ -1,4 +1,5 @@
 import React from "react";
+import NewsArticle from "./NewsArticle";
 
 
 export class Home extends React.Component {
@@ -14,7 +15,7 @@ export class Home extends React.Component {
            {/* {this.props.home.map((____) => {
              return ("no frontend stuff yet")
            })} */}
-   
+           <NewsArticle/>
          </div>
         )
    }
