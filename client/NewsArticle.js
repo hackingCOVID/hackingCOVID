@@ -1,6 +1,6 @@
 
 //LEFT OFF ON BABEL ERROR regenrator runtime _ NEED TO STILL TEST REDUX 
-
+// GO OVER WHAT THE STORE EVEN DOES 
 import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import Pagination from "react-bootstrap/Pagination";
