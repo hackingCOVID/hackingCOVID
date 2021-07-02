@@ -19,21 +19,22 @@ export const setNews = (news) => {
 
 export const fetchNews = () => async (dispatch)=> {
   const {data} = await axios.get("/api/news")
-  console.log("DATA", data)
+  console.log("data", data)
   dispatch(setNews(data)); 
 }
 
 // INITIAL STATE 
 const initialState = {
-    newArticles: [],
+    newsArticles: [],
 }
 
 // REDUCER 
 
 export default function (state = initialState, action){
-    switch(action.type){
+  console.log("reducer", action)
+    switch(action.type){ 
         case SET_NEWS: 
-        return action.news
+        return {...state, newsArticles: action.news}// returns to map state 
         default: 
         return state; 
     }

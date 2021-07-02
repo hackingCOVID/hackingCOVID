@@ -15,7 +15,7 @@ function App() {
       <Router className='mainComponent'>
         <Route exact path="/home" component={Home}/>
         <Route path="/map" component={Map} />
-        <Route path="/vaccineinfo" component={VaccineInfo} />
+        <Route path="/vaccine" component={VaccineInfo} />
       </Router>
         </Provider>
    
