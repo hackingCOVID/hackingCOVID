@@ -1,4 +1,7 @@
 import React from "react";
+import { Pagination } from "react-bootstrap";
+import NewsArticle from "./NewsArticle";
+import Practice from "./Practice";
 
 
 export class Home extends React.Component {
@@ -14,7 +17,9 @@ export class Home extends React.Component {
            {/* {this.props.home.map((____) => {
              return ("no frontend stuff yet")
            })} */}
-   
+           <Practice/>
+          
+          
          </div>
         )
    }

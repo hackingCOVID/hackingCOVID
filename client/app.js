@@ -4,16 +4,21 @@ import Map from './Map'
 import Home from './Home'
 import VaccineInfo from './VaccineInfo'
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import store from './redux'
+import {Provider} from "react-redux"
 
 function App() {
     return (
       <div>
-      <AppNavbar/>
+        <Provider store = {store}>
+        <AppNavbar/>
       <Router className='mainComponent'>
         <Route exact path="/home" component={Home}/>
         <Route path="/map" component={Map} />
-        <Route path="/vaccineinfo" component={VaccineInfo} />
+        <Route path="/vaccine" component={VaccineInfo} />
       </Router>
+        </Provider>
+   
       </div>
       
     );

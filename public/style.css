@@ -3,21 +3,14 @@
     
 }
 
-/* .map-div{
-    background-color: yellow;
-} */
 
+/* Vaccine Info */
 .vaccine-div{
     text-align: center;
 
 }
 
-/* svg{
-    background-color: pink;
-} */
-
-/* tooltip formatting */
-.tooltip {	
+/* .tooltip {	
     position: absolute;			
     text-align: center;			
     width: 100px;
@@ -31,8 +24,9 @@
     color: black;
     opacity: 0;
     visibility: visible;
-  }
+  } */
 
+  /* MAP COMPONENT */
   svg{
       position: absolute;
       z-index: -1;
@@ -43,22 +37,9 @@
       width: 100px;
       background-color: yellow;
   }
+/* NEWS ARTICLE COMPONENT */
+ 
 
-
-
-  
-  
-  /* Tooltip text */
-  /* .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-   
-    /* Position the tooltip text - see examples below! */
-    /* position: absolute;
-    z-index: 1;
-  } */ 
+.pagination{
+   margin: auto
+}
